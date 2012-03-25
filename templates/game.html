@@ -18,6 +18,18 @@
 
 {% endif %}
 
+{% if exits %}
+
+<p>You can see the following exits:</p>
+
+<ul>
+	{% for description, location_id in exits %}
+	<li><a href="/player/{{player['id']}}/location/{{location_id}}">{{description}}</a></li>
+	{% endfor %}
+</ul>
+
+{% endif %}
+
 <p>You are playing {{player['name']}}</p>
 
 {% endblock %}

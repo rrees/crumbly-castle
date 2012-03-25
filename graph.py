@@ -48,6 +48,9 @@ def node(index_name, index_key, index_id):
 
 	return None
 
+def node_by_id(node_id):
+	return db.node[node_id]
+
 def link(a, b, relationship_name, relationship_data = None):
 	existing_links = [node for node in a.relationships.outgoing([relationship_name]) if node.end == b]
 	if not existing_links:
@@ -69,5 +72,10 @@ def random_location():
 
 def player(player_id):
 	player = node('characters', 'character', player_id)
+
+	location = first([rel.end for rel in player.relationships.outgoing(['Location'])])
+
+	if location:
+		player.location = location
 
 	return player

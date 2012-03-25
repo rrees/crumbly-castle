@@ -46,14 +46,26 @@ def new_player():
 @app.route('/player/<player_id>')
 def game(player_id):
 	player = graph.player(player_id)
-	location = first([rel.end for rel in player.relationships.outgoing(['Location'])])
 
-	other_players = [rel.start for rel in location.relationships.incoming(['Location']) if not rel.start == player]
+	other_players = [rel.start for rel in player.location.relationships.incoming(['Location']) if not rel.start == player]
+
+	exits = [(rel.get("description", "A stone path"), rel.end.id) for rel in player.location.relationships.outgoing(['Route'])]
 
 	return render_template('game.html',
 			player = player.properties,
-			location = location,
-			other_players = other_players,)
+			location = player.location,
+			other_players = other_players,
+			exits = exits)
+
+@app.route('/player/<player_id>/location/<new_node_id>')
+def move(player_id, new_node_id):
+	player = graph.player(player_id)
+
+	if int(new_node_id) in [rel.end.id for rel in player.location.relationships.outgoing(['Route'])]:
+		graph.unlink(player, 'Location')
+		graph.link(player, graph.node_by_id(new_node_id), 'Location')
+
+	return redirect('/player/' + player_id)
 
 
 if __name__ == '__main__':
