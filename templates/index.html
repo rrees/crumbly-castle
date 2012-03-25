@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Enter Crumbly Castle</h1>
+
+<form action="/player" method="POST">
+	<ul>
+		<li>{{form.name.label}}</li>
+		<li>{{form.name}}</li>
+		<li>{{form.description.label}}</li>
+		<li>{{form.description}}</li>
+		<li><button type="submit">Enter</button></li>
+	</ul>
+</form>
+
+{% endblock %}

@@ -1,1 +1,3 @@
 flask
+neo4jrestclient > 1.6
+wtforms
