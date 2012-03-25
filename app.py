@@ -47,9 +47,13 @@ def new_player():
 def game(player_id):
 	player = graph.player(player_id)
 	location = first([rel.end for rel in player.relationships.outgoing(['Location'])])
+
+	other_players = [rel.start for rel in location.relationships.incoming(['Location']) if not rel.start == player]
+
 	return render_template('game.html',
 			player = player.properties,
-			location = location,)
+			location = location,
+			other_players = other_players,)
 
 
 if __name__ == '__main__':

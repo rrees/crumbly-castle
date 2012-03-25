@@ -6,6 +6,18 @@
 
 <p>{{location['description']}}</p>
 
+{% if other_players %}
+
+<p>Here in the {{location['name']}} with you are:</p>
+
+<ul>
+	{% for p in other_players %}
+	<li>{{p['name']}}</li>
+	{% endfor %}
+</ul>
+
+{% endif %}
+
 <p>You are playing {{player['name']}}</p>
 
 {% endblock %}
