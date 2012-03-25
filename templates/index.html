@@ -5,6 +5,17 @@
 <h1>Enter Crumbly Castle</h1>
 
 <form action="/player" method="POST">
+
+	{% if form.errors %}
+	<ul>
+	{% for field_name, field_errors in form.errors|dictsort if field_errors %}
+            {% for error in field_errors %}
+                <li>{{ form[field_name].label }}: {{ error }}</li>
+            {% endfor %}
+    {% endfor %}
+	</ul>
+	{% endif %}
+
 	<ul>
 		<li>{{form.name.label}}</li>
 		<li>{{form.name}}</li>
