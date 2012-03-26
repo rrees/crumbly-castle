@@ -10,7 +10,7 @@ body {
 
 	max-width: 30em;
 
-	background-color: #c7c1c1;
+	background-color: #eee;
 	color: #6b6767;
 }
 
@@ -70,7 +70,6 @@ button {
 
 .no-details details { display: block }
 .no-details details > summary {
-	background-color: #c7bfbf;
 	padding: 0.5em;
 }
 .no-details details > summary::before { content:"► " }
