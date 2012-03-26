@@ -22,6 +22,10 @@ ul {
 	list-style: none;
 }
 
+form ul li {
+	padding-bottom: 0.3em;
+}
+
 a {
 	color: #5d2c2c;
 	text-decoration: none;
@@ -35,9 +39,16 @@ a:visited {
 	color: #5d2c2c;
 }
 
+input[type="text"], textarea {
+	width: 300px;
+}
+
+button {
+	font-family: 'Almendra SC', serif;
+}
 
 .description {
-	font-size: 120%;
+	font-size: 130%;
 }
 
 .exits {
@@ -46,6 +57,10 @@ a:visited {
 
 .exits li {
 	padding-bottom: 0.7em;
+}
+
+.characters li {
+	margin: 1em;
 }
 
 .character .description {
