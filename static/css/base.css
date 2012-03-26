@@ -1,0 +1,58 @@
+
+body {
+	font-family: 'Felipa', cursive;
+	font-size: 16pt;
+	letter-spacing: 0.1em;
+
+	margin-left: auto;
+	margin-right: auto;
+	width: 90%;
+
+	max-width: 30em;
+
+	background-color: #c7bfbf;
+	color: #6b6767;
+}
+
+h1 {
+	font-size: 150%;
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	color: #5d2c2c;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:visited {
+	color: #5d2c2c;
+}
+
+
+.description {
+	font-size: 120%;
+}
+
+.exits {
+	font-size: 75%;
+}
+
+.exits li {
+	padding-bottom: 0.7em;
+}
+
+.character .description {
+	font-size: 0.8em;
+	margin-left: 1em;
+}
+
+.no-details details { display: block }
+.no-details details > summary::before { content:"► " }
+.no-details details.open > summary::before { content:"▼ " }

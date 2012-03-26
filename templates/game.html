@@ -4,7 +4,10 @@
 
 <h1>{{location['name']}}</h1>
 
-<p>{{location['description']}}</p>
+<p class="description">{{location['description']}}</p>
+
+<p>You are playing <strong>{{player['name']}}</strong></p>
+
 
 {% if other_players %}
 
@@ -12,7 +15,12 @@
 
 <ul>
 	{% for p in other_players %}
-	<li>{{p['name']}}</li>
+	<li class="character">
+		<details>
+			<summary>{{p['name']}}</summary>
+			<p class="description">{{p['description']}}</p>
+		</details>
+	</li>
 	{% endfor %}
 </ul>
 
@@ -22,14 +30,12 @@
 
 <p>You can see the following exits:</p>
 
-<ul>
+<ul class="exits">
 	{% for description, location_id in exits %}
 	<li><a href="/player/{{player['id']}}/location/{{location_id}}">{{description}}</a></li>
 	{% endfor %}
 </ul>
 
 {% endif %}
-
-<p>You are playing {{player['name']}}</p>
 
 {% endblock %}
